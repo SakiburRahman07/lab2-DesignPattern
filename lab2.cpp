@@ -32,7 +32,7 @@ public:
         {
             ins=new shapefactory();
         }
-        return nullptr;
+        return ins;
     }
 
     shape* getshape(string shapetype)
@@ -55,6 +55,9 @@ shapefactory* shapefactory::ins=nullptr;
 int main()
 {
     shapefactory* shapefactory1 = shapefactory::getinstance();
+    shapefactory* shapefactory2 = shapefactory::getinstance();
+    cout<<"Address of shapefactory 1 : "<<shapefactory1<<endl;
+    cout<<"Address of shapefactory 2 : "<<shapefactory2<<endl;
 
 
     shape *shape1 = shapefactory1->getshape("rectangle");
