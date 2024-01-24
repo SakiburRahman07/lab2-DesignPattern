@@ -18,7 +18,7 @@ class square : public shape{
 public:
     void draw()
     {
-        cout<<"Inside Draw"<<endl;
+        cout<<"Inside square"<<endl;
     }
 };
 
@@ -32,13 +32,13 @@ public:
         {
             ins=new shapefactory();
         }
-        return shapefactory();
+        return nullptr;
     }
 
     shape* getshape(string shapetype)
     {
-      if(shapetype==nullptr) return null;
-      else if(shapetype=="rectangle")
+
+      if(shapetype=="rectangle")
       {
           return new rectangle();
       }
@@ -46,11 +46,21 @@ public:
       {
           return new square();
       }
-      else return null;
+      else return nullptr;
     }
 };
 
+shapefactory* shapefactory::ins=nullptr;
+
 int main()
 {
+    shapefactory* shapefactory1 = shapefactory::getinstance();
+
+
+    shape *shape1 = shapefactory1->getshape("rectangle");
+    shape1->draw();
+
+    shape *shape2 = shapefactory1->getshape("square");
+    shape2->draw();
 
 }
