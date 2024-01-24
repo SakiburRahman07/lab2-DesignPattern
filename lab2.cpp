@@ -22,6 +22,34 @@ public:
     }
 };
 
+class shapefactory{
+    static shapefactory *ins;
+    shapefactory(){}
+public:
+    static shapefactory* getinstance()
+    {
+        if(ins==nullptr)
+        {
+            ins=new shapefactory();
+        }
+        return shapefactory();
+    }
+
+    shape* getshape(string shapetype)
+    {
+      if(shapetype==nullptr) return null;
+      else if(shapetype=="rectangle")
+      {
+          return new rectangle();
+      }
+      else if(shapetype=="square")
+      {
+          return new square();
+      }
+      else return null;
+    }
+};
+
 int main()
 {
 
